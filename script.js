@@ -1,48 +1,48 @@
 const textArea = document.querySelector(".text-area");
 const mensaje = document.querySelector(".mensaje");
 
-function btnEncriptar(){
+function btnEncriptar() {
     const textoEncriptado = encriptar(textArea.value)
     mensaje.value = textoEncriptado
     textArea.value = "";
     mensaje.style.backgroundImage = "none"
 }
 
-function encriptar(stringEncriptada){
+function encriptar(stringEncriptada) {
     let matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
     stringEncriptada = stringEncriptada.toLowerCase()
 
-    for(let i = 0; i < matrizCodigo.length; i++){
-        if(stringEncriptada.includes(matrizCodigo[i][0])){
+    for (let i = 0; i < matrizCodigo.length; i++) {
+        if (stringEncriptada.includes(matrizCodigo[i][0])) {
             stringEncriptada = stringEncriptada.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1])
         }
     }
     return stringEncriptada
 }
 
-function btnDesencriptar(){
+function btnDesencriptar() {
     const textoEncriptado = desencriptar(textArea.value)
     mensaje.value = textoEncriptado
     textArea.value = "";
-    
+
 }
 
-function desencriptar(stringDesencriptada){
+function desencriptar(stringDesencriptada) {
     let matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
     stringDesencriptada = stringDesencriptada.toLowerCase()
 
-    for(let i = 0; i < matrizCodigo.length; i++){
-        if(stringDesencriptada.includes(matrizCodigo[i][1])){
+    for (let i = 0; i < matrizCodigo.length; i++) {
+        if (stringDesencriptada.includes(matrizCodigo[i][1])) {
             stringDesencriptada = stringDesencriptada.replaceAll(matrizCodigo[i][1], matrizCodigo[i][0])
         }
     }
     return stringDesencriptada
 }
 
-function copiar(){
-   let copiar = navigator.clipboard.writeText (mensaje.value);
+function copiar() {
+    let copiar = navigator.clipboard.writeText(mensaje.value);
     mensaje.select();
-    return copiar ;
+    return copiar;
 }
 
 //Las "llaves" de encriptación que utilizaremos son las siguientes:
@@ -59,5 +59,5 @@ function copiar(){
 
 //No deben ser utilizados letras con acentos ni caracteres especiales.
 
-//Debe ser posible convertir una palabra para la versión encriptada, 
+//Debe ser posible convertir una palabra para la versión encriptada,
 //también devolver una palabra encriptada para su versión original.
